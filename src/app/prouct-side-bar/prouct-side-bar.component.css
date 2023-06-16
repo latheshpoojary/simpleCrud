@@ -1,0 +1,33 @@
+.sidenav {
+    display: flex;
+    height: 100vh;
+}
+
+.sidebar {
+    width: 25%;
+    background-color: #333;
+    color: white;
+}
+
+.product-page {
+    flex: 1;
+    background-color: #f2f2f2;
+    padding: 1rem;
+}
+h1{
+    margin-bottom: 20px;
+}
+button{
+    display: block;
+    width: 100%;
+        padding: 1rem;
+        color:white;
+        background-color: #333;
+        text-decoration: none;
+        border: none;
+        font-size: 20px;
+}
+button:hover{
+    /* width: 100%; */
+    background-color: grey;
+}

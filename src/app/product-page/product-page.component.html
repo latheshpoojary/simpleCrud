@@ -1,0 +1,69 @@
+
+<button type="button" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="clickAddItem()">Add Item</button>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Cost</th>
+            <th scope="col">Description</th>
+            <th scope="col">Date</th>
+            <th scope="col">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let row of itemData">
+            <td>{{row.id}}</td>
+            <td>{{row.name}}</td>
+            <td>{{row.desc}}</td>
+            <td>{{row.date}}</td>
+            <td>{{row.cost}}</td>
+            <td>
+                <button type="button" class="btn btn-primary mx-3" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="onEdit(row)">Edit
+                    </button>
+                <button class="btn btn-info mx-3" (click)="deleteItem(row)">Delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<!-- Button trigger modal -->
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Product Details</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+            <form [formGroup]="formValue">
+                
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Product Name</label>
+                    <input type="text" formControlName="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">Product Description</label>
+                    <textarea  formControlName="desc" class="form-control" id="exampleInputPassword1"></textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">Cost</label>
+                    <input type="text" formControlName="cost" class="form-control" id="exampleInputPassword1">
+                </div>
+               
+                
+                
+            </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" id="cancel" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" *ngIf="showAdd" (click)="postItemdetails()">Add</button>
+                <button type="button" class="btn btn-primary" *ngIf="showUpdate" (click)="updateItemdetails()">Update</button>
+            </div>
+        </div>
+    </div>
+</div>
